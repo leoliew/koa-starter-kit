@@ -62,6 +62,8 @@ assets/docs/
 *-lock.json
 
 #typescript build source
+config/initializer/*.js
 app/**/*.js
 
+!config/initializer/index.js
 !app/router.js
