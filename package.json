@@ -1,0 +1,19 @@
+{
+  "name": "koa-starter-kit",
+  "version": "1.0.0",
+  "description": "koa starter kit ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "starter",
+    "kit"
+  ],
+  "author": "Leo",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.3.0"
+  }
+}
