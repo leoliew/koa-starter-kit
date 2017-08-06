@@ -63,3 +63,5 @@ assets/docs/
 
 #typescript build source
 app/**/*.js
+
+!app/router.js

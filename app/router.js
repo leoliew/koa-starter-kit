@@ -67,6 +67,9 @@ const router = require('koa-router')({
 //   ctx.body = {"a":"b"}
 // });
 
+router.get('/', async (ctx) => {
+  ctx.body = {'Hello': 'world'};
+})
 require('./user/router').router(router)
 
 module.exports = router

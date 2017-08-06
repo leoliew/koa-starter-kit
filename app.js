@@ -16,6 +16,10 @@ app.use(morgan('tiny', {
 }))
 
 buildRoutes(app)
+
+// initializer
+require('./config/initializer')
+
 // statics
 app.use(serve('assets'))
 

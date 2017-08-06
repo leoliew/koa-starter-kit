@@ -1,0 +1,19 @@
+{
+  "extends": "standard",
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "afterEach": true
+  },
+  "rules": {
+    "no-multi-spaces": 0,
+    "no-console": 2,
+    "camelcase": 2,
+    "radix": 0
+  }
+}
