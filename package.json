@@ -4,7 +4,8 @@
   "description": "koa starter kit ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "apidoc -i app/ -o assets/docs"
   },
   "keywords": [
     "koa",
@@ -15,6 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "koa": "^2.3.0",
+    "koa-router": "^7.2.1",
     "koa-static": "^4.0.1"
   }
 }

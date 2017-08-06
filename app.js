@@ -1,6 +1,7 @@
 const http = require('http')
-const koa = require('koa');
-const app = new koa();
+const serve = require('koa-static')
+const koa = require('koa')
+const app = new koa()
 app.use(async (ctx, next) => {
   const start = new Date;
   console.log(`Started at: ${start}`);
@@ -34,11 +35,13 @@ app.use(async (ctx, next) =>{
   console.log('%s %s - %s', ctx.method, ctx.url, ms);
 });
 
-app.use(async (ctx) => {
-  ctx.body = 'Hello world';
-});
+// app.use(async (ctx) => {
+//   ctx.body = 'Hello world';
+// });
 
-
+buildRoutes(app)
+// statics
+app.use(serve('assets'))
 
 const server = http.createServer(app.callback()).listen(3000)
 
@@ -47,5 +50,12 @@ const server = http.createServer(app.callback()).listen(3000)
 //   server.
 // }
 
+function buildRoutes (app) {
+  // routers
+  const router = require('./app/router')
+  // any router can be used, we support koa-router out of the box
+  // bindRoutes(router, [HelloController])
+  app.use(router.routes(), router.allowedMethods())
+}
 
 module.exports = server
