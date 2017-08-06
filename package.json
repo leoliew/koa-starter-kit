@@ -20,6 +20,7 @@
     "koa-json": "^2.0.2",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.2.1",
-    "koa-static": "^4.0.1"
+    "koa-static": "^4.0.1",
+    "typescript": "^2.4.2"
   }
 }

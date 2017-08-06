@@ -60,3 +60,6 @@ assets/docs/
 
 #npm lock
 *-lock.json
+
+#typescript build source
+app/**/*.js
