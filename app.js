@@ -1,3 +1,4 @@
+const http = require('http')
 const koa = require('koa');
 const app = new koa();
 app.use(async (ctx, next) => {
@@ -33,10 +34,18 @@ app.use(async (ctx, next) =>{
   console.log('%s %s - %s', ctx.method, ctx.url, ms);
 });
 
-
-
-
 app.use(async (ctx) => {
   ctx.body = 'Hello world';
 });
-app.listen(3000);
+
+
+
+const server = http.createServer(app.callback()).listen(3000)
+
+// const port = config.get('port')
+// if (!module.parent) {
+//   server.
+// }
+
+
+module.exports = server
