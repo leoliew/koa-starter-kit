@@ -1,7 +1,8 @@
 
 function router(router) {
-  router.get('/', async (ctx) => {
-    ctx.body = {'Hello': 'world'};
+  router.all('/', async (ctx) => {
+    console.log(ctx.request.body)
+    ctx.body = {'Hello': 'world'}
   })
 }
 
