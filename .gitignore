@@ -39,15 +39,6 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variables file
-.env
-# config production environment variables file
-config/production.json
-config/local.js
-config/dev.js
-config/test.js
-config/testLocal.js
-config/*local*.js
 
 tags
 # ide
@@ -62,8 +53,4 @@ assets/docs/
 *-lock.json
 
 #typescript build source
-config/initializer/*.js
-app/**/*.js
-
-!config/initializer/index.js
-!app/router.js
+dist

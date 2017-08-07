@@ -6,7 +6,7 @@ const morgan = require('koa-morgan')
 const koa = require('koa')
 const app = new koa()
 
-// middlewares
+// middleware
 app.use(bodyParser())
 app.use(json())
 app.use(morgan('tiny', {

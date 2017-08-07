@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "doc": "apidoc -i app/ -o assets/docs"
+    "doc": "apidoc -i app/ -o assets/docs",
+    "serve": "nodemon dist/server.js",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "keywords": [
     "koa",
