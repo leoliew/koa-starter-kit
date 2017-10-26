@@ -8,8 +8,8 @@ module.exports = {
   isProd: false,
   database: {
     redis: {
-      host: process.env.REDIS_HOST || 'joda',
-      port: process.env.REDIS_PORT || '6381'
+      host: process.env.REDIS_HOST || '127.0.0.1',
+      port: process.env.REDIS_PORT || '6379'
     },
     mongoDebug: false,
     mongodb: [
