@@ -1,5 +1,7 @@
 import * as mongoose from 'mongoose'
+import * as bluebird from 'bluebird'
 
+(<any>mongoose).Promise = bluebird
 mongoose.set('debug', true)
 let dbs: Map<string, mongoose.Connection> = new Map()
 

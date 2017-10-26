@@ -1,15 +1,20 @@
-const http = require('http')
-const serve = require('koa-static')
+import * as http from 'http'
+import * as koaStatic from 'koa-static'
+
 const bodyParser = require('koa-bodyparser')
-const json = require('koa-json')
-const morgan = require('koa-morgan')
-const koa = require('koa')
-const app = new koa()
+import * as koaJson from 'koa-json'
+import * as koaMorgan from 'koa-morgan'
+import * as Koa from 'koa'
+import ApiRouter from './api/router'
+
+const app = new Koa()
+const apiRouter = new ApiRouter()
+
 
 // middleware
 app.use(bodyParser())
-app.use(json())
-app.use(morgan('tiny', {
+app.use(koaJson())
+app.use(koaMorgan('tiny', {
   skip: function (req, res) {
     return /\/docs\//.exec(req.url) || /\/healthcheck\//.exec(req.url)
   }
@@ -18,10 +23,10 @@ app.use(morgan('tiny', {
 buildRoutes(app)
 
 // initializer
-require('./config/initializer')
+require('./initializer')
 
 // statics
-app.use(serve('assets'))
+app.use(koaStatic('assets'))
 
 const server = http.createServer(app.callback()).listen(3000)
 
@@ -30,7 +35,7 @@ function buildRoutes (app) {
   const router = require('./app/router')
   // any router can be used, we support koa-router out of the box
   // bindRoutes(router, [HelloController])
-  app.use(router.routes(), router.allowedMethods())
+  app.use(apiRouter.routes(), router.allowedMethods())
 }
 
 module.exports = server

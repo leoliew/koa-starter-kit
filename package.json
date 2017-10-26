@@ -20,15 +20,17 @@
   "license": "MIT",
   "dependencies": {
     "@types/koa-router": "^7.0.23",
+    "bluebird": "^3.5.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
-    "mongoose": "^4.11.5"
+    "mongoose": "^4.12.4"
   },
   "devDependencies": {
+    "@types/mocha": "^2.2.44",
     "@types/mongoose": "^4.7.19",
     "@types/node": "^8.0.47",
     "tslint": "^5.5.0",
