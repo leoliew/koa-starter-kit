@@ -1,7 +1,6 @@
 import * as http from 'http'
 import * as koaStatic from 'koa-static'
-
-const bodyParser = require('koa-bodyparser')
+import * as bodyParser from 'koa-bodyparser'
 import * as koaJson from 'koa-json'
 import * as koaMorgan from 'koa-morgan'
 import * as Koa from 'koa'

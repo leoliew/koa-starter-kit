@@ -12,8 +12,8 @@ export async function getUserByName (ctx) {
 }
 
 export async function save(ctx){
-  const user = ctx.body
+  const user = ctx.request.body
   //TODO: body parser
-  console.log(ctx.params)
+  console.log(ctx)
   ctx.body = await UserBaseService.save(user)
 }
