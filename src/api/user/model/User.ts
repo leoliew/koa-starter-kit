@@ -1,7 +1,7 @@
 import {Document, Model, Schema} from 'mongoose'
 import database from '../../../initializer/database'
 
-const db = database.get('db')
+const mongodb = database.get('mongodb')
 
 export interface IUser {
   phone: string
@@ -22,4 +22,4 @@ const schema: Schema = new Schema({
 })
 
 
-export const User: Model<UserModel> = db.model<UserModel>(modelName, schema, modelName)
+export const User: Model<UserModel> = mongodb.model<UserModel>(modelName, schema, modelName)

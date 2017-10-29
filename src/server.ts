@@ -31,10 +31,10 @@ const server = http.createServer(app.callback()).listen(3000)
 
 function buildRoutes (app) {
   // routers
-  const router = require('./app/router')
+  const router = require('./api/router')
   // any router can be used, we support koa-router out of the box
   // bindRoutes(router, [HelloController])
-  app.use(apiRouter.routes(), router.allowedMethods())
+  app.use(apiRouter.routes())
 }
 
 module.exports = server

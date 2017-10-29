@@ -1,4 +1,4 @@
-const path = require('path')
+import * as path from 'path'
 // const logger = require('../app/lib/Logger')
 // logger.error('asdfasdf default')
 
@@ -11,10 +11,10 @@ module.exports = {
       host: process.env.REDIS_HOST || '127.0.0.1',
       port: process.env.REDIS_PORT || '6379'
     },
-    mongoDebug: false,
+    mongooseDebug: false,
     mongodb: [
       {
-        name: 'db',
+        name: 'mongodb',
         url: process.env.MONGODB,
         options: {}
       }

@@ -1,8 +1,14 @@
 import * as mongoose from 'mongoose'
 import * as bluebird from 'bluebird'
+import * as config from 'config'
 
-(<any>mongoose).Promise = bluebird
-mongoose.set('debug', true)
+const mongodbConfig = config.get('database.mongodb')
+const DEBUG_FLAG = config.get('database.mongooseDebug')
+
+mongoose.set('Promise', bluebird)
+mongoose.set('debug', DEBUG_FLAG)
+
+
 let dbs: Map<string, mongoose.Connection> = new Map()
 
 function createConnection (url, options = {}) {
@@ -30,8 +36,8 @@ function createConnection (url, options = {}) {
   return db
 }
 
-// for (let c of mongoConfigs) {
-dbs.set('db', createConnection('mongodb://127.0.0.1:27017/beta_koa', {}))
-// }
+for (let c of mongodbConfig) {
+  dbs.set(c.name, createConnection(c.url, c.options))
+}
 
 export default dbs
