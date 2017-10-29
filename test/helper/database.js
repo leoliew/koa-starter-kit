@@ -1,13 +1,14 @@
 const fs = require('fs')
-import database from '../../src/initializer/database'
+// const database = require('../../dist/initializer/database')
 // const logger = require('../../build/app/lib/Logger').default
-const models = require('../modules').model
+// const models = require('../modules').model
 
 exports.drop = async () => {
-  const db = database.get('mongodb')
+  // 每次调用，不能在上层引用
+  // const db = require('../../dist/initializer/database').default.get('mongodb')
   // return await db.dropDatabase()
   for (let key of Object.keys(db.collections)) {
-    await db.collections[key].deleteMany({})
+    await db.collections[key].remove()
   }
 }
 
@@ -29,4 +30,8 @@ exports.initData = async (fileName) => {
     // logger.info('init file fail ', fileName, err.errors)
     // logger.info('init file fail ', fileName, err.stack)
   }
+}
+
+exports.close = async () => {
+  // mongoose.connection.close()
 }

@@ -47,10 +47,10 @@ beforeEach(async function () {
   fixtureStatus.set(file, true)
 })
 
-after(async () => {
-  // logger.info(' 测试结束 cleanAll nock')
-  // nock.cleanAll()
-})
+// after(async () => {
+//   // logger.info(' 测试结束 cleanAll nock')
+//   // nock.cleanAll()
+// })
 
 // module.exports.request = request
 module.exports.prefix = '/api/v1'

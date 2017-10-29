@@ -1,3 +1,3 @@
-const dbs = require('./database').default
+const dbs = require('./database')
 
 module.exports.dbs = dbs

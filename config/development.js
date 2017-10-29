@@ -1,10 +1,10 @@
-import * as path from 'path'
+// import * as path from 'path'
 // const logger = require('../app/lib/Logger')
 // logger.error('asdfasdf default')
 
 module.exports = {
   application: 'klg-p2p',
-  root: path.resolve(__dirname, '..'),
+  // root: path.resolve(__dirname, '..'),
   isProd: false,
   database: {
     redis: {

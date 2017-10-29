@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test mocha -R spec -t 50000 -r should --recursive test",
     "doc": "apidoc -i app/ -o assets/docs",
-    "serve": "nodemon dist/src/server.js",
+    "serve": "nodemon dist/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
