@@ -5,7 +5,7 @@ const fs = require('fs')
 
 exports.drop = async () => {
   // 每次调用，不能在上层引用
-  // const db = require('../../dist/initializer/database').default.get('mongodb')
+  const db = require('../../dist/initializer/database').default.get('mongodb')
   // return await db.dropDatabase()
   for (let key of Object.keys(db.collections)) {
     await db.collections[key].remove()

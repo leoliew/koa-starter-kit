@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -34,10 +35,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-var UserBaseService = require('../../dist/api/user/service/UserBaseService').UserBaseService;
-// const {User} = require ('../../dist/api/user/model/User')
-var helper = require('../helper');
-require('should');
+Object.defineProperty(exports, "__esModule", { value: true });
+var UserBaseService_1 = require("../../src/api/user/service/UserBaseService");
+var User_1 = require("../../src/api/user/model/User");
+// const helper = require('../helper')
+// require('should')
 describe('UserBaseService Test', function () {
     it('save user!', function () { return __awaiter(_this, void 0, void 0, function () {
         var user, result;
@@ -45,13 +47,13 @@ describe('UserBaseService Test', function () {
             switch (_a.label) {
                 case 0:
                     user = {
-                        phone: "13242890088",
+                        phone: '13242890088',
                         name: 'leo'
                     };
-                    return [4 /*yield*/, UserBaseService.save(user)];
+                    return [4 /*yield*/, UserBaseService_1.UserBaseService.save(user)];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, User.findOne()];
+                    return [4 /*yield*/, User_1.User.findOne()];
                 case 2:
                     result = _a.sent();
                     console.log(result);
