@@ -8,7 +8,6 @@ const DEBUG_FLAG = config.get('database.mongooseDebug')
 mongoose.set('Promise', bluebird)
 mongoose.set('debug', DEBUG_FLAG)
 
-
 let dbs: Map<string, mongoose.Connection> = new Map()
 
 function createConnection (url, options = {}) {
