@@ -1,16 +1,22 @@
-import { UserBaseService } from '../../src/api/user/service/UserBaseService'
-import { User } from '../../src/api/user/model/User'
-import * as mongoose from 'mongoose'
+import { UserBaseService } from '../../src/user/service/UserBaseService'
+import { User } from '../../src/user/model/User'
+import * as should from 'should'
 
 describe('UserBaseService Test', () => {
-  it('save user!', async () => {
+  it('getUserByName Method', async () => {
+    const name = 'kk'
+    const result = await UserBaseService.getUserByName(name)
+    result.name.should.equal(name)
+    result.phone.should.equal('13455556667')
+  })
+  it('save Method', async () => {
     const user = {
       phone: '13242890088',
       name: 'leo'
     }
     await UserBaseService.save(user)
-    const result = await User.findOne()
-    mongoose.disconnect()
-    console.log(result)
+    const result = await User.findOne({phone: user.phone})
+    result.phone.should.equal(user.phone)
+    result.name.should.equal(user.name)
   })
 })

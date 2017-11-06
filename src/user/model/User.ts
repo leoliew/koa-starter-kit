@@ -1,5 +1,5 @@
-import {Document, Model, Schema} from 'mongoose'
-import database from '../../../initializer/database'
+import { Document, Model, Schema } from 'mongoose'
+import database from '../../initializer/database'
 
 const mongodb = database.get('mongodb')
 
@@ -20,6 +20,5 @@ const schema: Schema = new Schema({
   name: {type: String},
   isRegister: {type: Boolean}
 })
-
 
 export const User: Model<UserModel> = mongodb.model<UserModel>(modelName, schema, modelName)

@@ -1,27 +1,18 @@
 import * as KoaRouter from 'koa-router'
-import * as UserController from './user/controllers/UserController'
-
 
 export default class ApiRouter extends KoaRouter {
-  public constructor() {
-    super({ prefix: '/api/v1' });
-    this.setupRoutes();
+  public constructor () {
+    super({prefix: '/api/v1'})
+    this.setupRoutes()
   }
 
   /**
    * Initialize routes
    */
   public setupRoutes = (): void => {
-    this.get('/user/getUserByName/:name', UserController.getUserByName)
-    this.post('/user', UserController.save)
+    require('./user/router').router(this)
   }
 }
-
-
-
-
-// const responseFormatter = require('./common/middleware/ResponseFormatter')
-// router.use('/', responseFormatter('^/api'))
 
 /**
  * @apiDefine requestId

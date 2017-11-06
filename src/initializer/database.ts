@@ -1,11 +1,9 @@
 import * as mongoose from 'mongoose'
-import * as bluebird from 'bluebird'
 import * as config from 'config'
 
 const mongodbConfig = config.get('database.mongodb')
 const DEBUG_FLAG = config.get('database.mongooseDebug')
-
-mongoose.set('Promise', bluebird)
+// mongoose.Promise.set(Promise)
 mongoose.set('debug', DEBUG_FLAG)
 
 let dbs: Map<string, mongoose.Connection> = new Map()

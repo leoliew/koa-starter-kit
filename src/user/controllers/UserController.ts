@@ -1,4 +1,4 @@
-import {UserBaseService} from "../service/UserBaseService"
+import { UserBaseService } from '../service/UserBaseService'
 
 /**
  * getUserByName
@@ -6,14 +6,11 @@ import {UserBaseService} from "../service/UserBaseService"
  * @returns {Promise<void>}
  */
 export async function getUserByName (ctx) {
-  console.log(ctx.params)
   const {name} = ctx.params
   ctx.body = await UserBaseService.getUserByName(name)
 }
 
-export async function save(ctx){
+export async function save (ctx) {
   const user = ctx.request.body
-  //TODO: body parser
-  console.log(ctx)
   ctx.body = await UserBaseService.save(user)
 }
