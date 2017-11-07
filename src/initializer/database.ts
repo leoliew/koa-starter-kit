@@ -1,6 +1,6 @@
 import * as mongoose from 'mongoose'
 import * as config from 'config'
-import { Logger } from '../lib'
+import { Logger } from '../lib/'
 
 const mongodbConfig = config.get('database.mongodb')
 const DEBUG_FLAG = config.get('database.mongooseDebug')
