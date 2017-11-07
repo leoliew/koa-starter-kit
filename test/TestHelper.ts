@@ -1,4 +1,4 @@
-import database from '../src/initializer/database'
+import database from '../src/connection/mongodb'
 import * as mongoose from 'mongoose'
 
 beforeEach(async function () {

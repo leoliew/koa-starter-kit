@@ -1,5 +1,5 @@
 import { Document, Model, Schema } from 'mongoose'
-import database from '../../initializer/database'
+import database from '../../connection/mongodb'
 
 const mongodb = database.get('mongodb')
 
