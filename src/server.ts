@@ -22,7 +22,7 @@ app.use(koaMorgan('tiny', {
 buildRoutes(app)
 
 // initializer
-require('./initializer')
+require('./connection')
 
 // statics
 app.use(koaStatic('assets'))

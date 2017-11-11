@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test mocha --require ts-node/register -R spec -t 50000 -r should --recursive test test/TestHelper.ts test/**/*.test.ts",
     "doc": "apidoc -i app/ -o assets/docs",
-    "serve": "nodemon dist/server.js",
+    "serve": "nodemon dist/src/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
@@ -19,18 +19,21 @@
   "author": "Leo",
   "license": "MIT",
   "dependencies": {
-    "@types/koa-router": "^7.0.23",
     "bluebird": "^3.5.1",
     "config": "^1.27.0",
+    "ioredis": "^3.2.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-json": "^2.0.2",
     "koa-morgan": "^1.0.1",
     "koa-router": "^7.2.1",
     "koa-static": "^4.0.1",
-    "mongoose": "^4.12.4"
+    "mongoose": "^4.12.4",
+    "tracer": "^0.8.11"
   },
   "devDependencies": {
+    "@types/ioredis": "0.0.27",
+    "@types/koa-router": "^7.0.23",
     "@types/mocha": "^2.2.44",
     "@types/mongoose": "^4.7.25",
     "@types/node": "^8.0.48",
