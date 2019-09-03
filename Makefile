@@ -1,6 +1,6 @@
 .PHONY: build
 
-NAME=huipin-union-backend
+NAME=koa-starter-kit
 REGISTRY=registry.cn-shenzhen.aliyuncs.com
 NAMESPACE=leoliew
 TAG=beta
