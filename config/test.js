@@ -8,7 +8,7 @@ module.exports = {
     mongodb: [
       {
         name: 'koa-starter-kit',
-        url: 'mongodb://127.0.0.1:27017/koa-starter-kit',
+        url: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/koa-starter-kit',
         options: {}
       }
     ]
