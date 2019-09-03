@@ -19,6 +19,10 @@ jobs:
         image: redis
         ports:
         - 6379:6379
+      mongo:
+        image: mongo
+        ports:
+        - 27017:27017
 
     steps:
     - uses: actions/checkout@v1
@@ -33,3 +37,6 @@ jobs:
         npm test
       env:
         CI: true
+        REDIS_URI: 'redis://redis:6379'
+        MONGO_URI: 'mongodb://mongo:27017/koa-starter-kit'
+        
