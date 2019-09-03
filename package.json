@@ -2,7 +2,7 @@
   "name": "koa-starter-kit",
   "version": "1.0.0",
   "description": "koa-starter-kit ",
-  "main": "app.js",
+  "main": "src/server.ts",
   "scripts": {
     "start": "node ./dist/server.js",
     "test": "jest --runInBand",
@@ -51,5 +51,8 @@
     "typescript": "^3.6.2",
     "jest": "^24.9.0",
     "ts-jest": "^24.0.2"
+  },
+  "engines": {
+    "node": "10.16.3"
   }
 }
