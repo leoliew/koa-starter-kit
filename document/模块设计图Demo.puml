@@ -1,0 +1,9 @@
+@startuml
+package User <<Frame>> {
+          class RegisterAndLoginService {
+            .. Field ..
+            .. Method ..
+            + 查询用户
+            + 注册用户
+          }
+@enduml

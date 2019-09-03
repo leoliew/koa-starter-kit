@@ -1,6 +1,9 @@
-import * as UserController from './controllers/UserController'
+import * as UserController from './controller/UserController'
+import { common } from './modules'
+
+const RequestLog = common.middleware.RequestLog
 
 export function router (router) {
-  router.get('/user/getUserByName/:name', UserController.getUserByName)
-  router.post('/user', UserController.save)
+  router.post('/user/sendLoginCode', UserController.sendLoginCode)
+  router.post('/user/loginByCode', UserController.loginByCode)
 }

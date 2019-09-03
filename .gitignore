@@ -43,6 +43,7 @@ typings/
 tags
 # ide
 .idea
+*.iml
 
 .vscode/
 
@@ -54,3 +55,9 @@ assets/docs/
 
 #typescript build source
 dist
+.DS_Store
+
+.history/
+
+# test config
+config/test.js
