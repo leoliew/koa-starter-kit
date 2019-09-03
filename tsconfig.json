@@ -5,6 +5,7 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "outDir": "dist",
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
       "*": [
@@ -13,7 +14,10 @@
     }
   },
   "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.data.ts"
   ]
 }

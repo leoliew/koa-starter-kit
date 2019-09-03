@@ -1,0 +1,133 @@
+@startuml
+
+class User {
+.. require fields 借款前必填项 ..
+#panCard-纳税唯一号
+#phone-手机号
+#firsName-性别
+#middleName-中间名字
+#lastName-名字
+#adahaarCard-身份证
+.. optional fields 个人资料 ..
+#bankCard-银行卡(放款需要提供)
+#gender-性别
+#religion-宗教
+#maritalStatus-婚姻状况
+.. optional fields 工作信息 ..
+#workStatus-工作状态(待业/工作中)
+#company-雇主(公司名)
+#officeAddress-办公地点
+#monthlySalary-月收入
+#workingYears-工作年限
+#workEmail-公司邮箱
+#educationBackGround-受教育程度
+.. optional fields 社会关系 ..
+#emergencyContact-紧急联系人
+.. method ..
++ 注册/登录()
++ 退出登录()
+}
+
+
+class Product {
+.. fields ..
+  #产品类型
+  #产品期数
+  #利息利率
+  #手续费率
+  #提前结清费率
+  #分期计划->提前还款费率
+  #分期计划->周期
+  #分期计划->还款本金
+.. method ..
++ 获取用户可展示产品()
+}
+
+
+class Order {
+.. fields ..
+  # 订单ID
+  # 用户ID
+  # 还款计划ID
+  # 完成时间
+  # 渠道
+  # 金额
+  # 状态[新建, 处理中, 成功, 失败]
+.. method ..
++ 创建订单()
++ 计算已还款金额()
+}
+
+
+
+class Loan{
+.. fields ..
+  # 订单ID
+  # 用户ID
+  # 总待还本金
+  # 申请时间
+  # 审核时间
+  # 放款时间
+  # 结清时间
+  # 放款银行卡
+  # 订单状态
+  # 应用标识
+.. method ..
++ 提供用户展示数据()
+}
+
+Loan *-- "计算单笔借款详情" RepaymentPlan
+
+class RepaymentPlan {
+.. fields ..
+  # 本金
+  # 利息
+  # 是否逾期
+  # 逾期天数
+  # 逾期费用
+  # 手续费
+  # 本期还款总费用
+  # 已还款时间
+  # 开始时间
+  # 结束时间
+  # 期数
+  # 还款计划状态(是否已结清)
+.. method ..
++ 计算剩余待还()
++ 根据产品设定生成还款计划()
+}
+
+class BaseRepaymentPlan {
+.. fields ..
+  # 本金
+  # 利息
+  # 手续费
+  # 开始时间
+  # 结束时间
+  # 期数
+.. method ..
++ 计算剩余待还()
++ 根据产品设定生成还款计划()
+}
+
+BaseRepaymentPlan <|-- RepaymentPlan
+
+class TransactionFlow {
+.. fields ..
+  # 订单ID
+  # 用户ID
+  # loanId
+  # 金额
+  # 类型+-
+  # 支付渠道
+  # 商户ID
+  # 第三方流水ID
+}
+
+RepaymentPlan *-- "统计还款计划状态" TransactionFlow
+
+Loan *-- "生成借款详情" Product
+
+
+
+@enduml

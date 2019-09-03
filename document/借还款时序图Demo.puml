@@ -1,0 +1,43 @@
+@startuml
+actor 借款人A
+boundary CashLoan
+boundary 风控
+boundary 模型
+
+== 获取产品 ==
+
+借款人A -> CashLoan: 注册登录并查看首页
+CashLoan -> 模型: 根据用户授信获取分期产品额度
+模型 -> CashLoan: 返回分期产品
+借款人A <- CashLoan : 用户看到分期产品
+
+== 订单审核 ==
+
+借款人A -> CashLoan : 申请借款
+CashLoan -> 风控: 把订单送入待机审状态
+
+... 等待定时任务调用 ...
+
+风控 -> 模型: 定时扫描待机审的订单,调用模型进行机审
+模型 -> 风控: 返回调用结果
+风控 -> CashLoan: 返回机审结果
+
+== 用户放款 ==
+
+CashLoan -> CashLoan: 机审审核成功/人审审核成功
+
+... 等待定时任务调用 ...
+
+CashLoan -> 借款人A: 定时扫描待放款的订单,并放款到用户
+CashLoan -> CashLoan: 生成还款计划
+
+== 用户还款 ==
+
+借款人A <- CashLoan : 用户看到还款计划,并计算当前还款金额(提前/正常/逾期)
+借款人A -> CashLoan : 发起还款
+CashLoan -> CashLoan : 还款成功,生成现金流
+CashLoan -> CashLoan : 把当期还款计划设置为成功
+CashLoan -> CashLoan : 更新借款订单剩余未还金额
+@enduml
+
+

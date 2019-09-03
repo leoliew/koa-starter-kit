@@ -1,3 +1,4 @@
-const dbs = require('./mongodb')
+import dbs from './mongodb'
+import { redis } from './redis'
 
-module.exports.dbs = dbs
+export { dbs, redis }

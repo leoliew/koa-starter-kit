@@ -1,13 +1,18 @@
 import * as os from 'os'
 import * as tracer from 'tracer'
 import * as config from 'config'
+import * as fs from 'fs'
 
-const Logger = tracer.console({
-  level: config.get('log.level'),
+const Logger = tracer.dailyfile({
+  root: 'logs',
+  // maxLogFiles: 10,
+  allLogsFileName: config.get('application') + '-',
+  level: config.get('isProd') ? 'info' : 'debug',
   dateformat: 'yyyy-mm-dd HH:MM:ss.L',
+  format : '{{timestamp}}|#|<{{title}}>|#|{{file}}:{{line}}|#|{{message}}',
   inspectOpt: {
-    showHidden: false, // if true then the object's non-enumerable properties will be shown too. Defaults to false
-    depth: 3 // tells inspect how many times to recurse while formatting the object. This is useful for inspecting large complicated objects. Defaults to 2. To make it recurse indefinitely pass null.
+    showHidden: false,
+    depth: 3
   },
   transport: function (data) {
     data.server = os.hostname()
