@@ -13,8 +13,8 @@ export interface IVerificationCode extends Document {
   mobileNumber: string
   code: string
   type: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 const schema: Schema = new Schema({
