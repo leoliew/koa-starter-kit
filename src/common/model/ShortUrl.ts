@@ -2,7 +2,7 @@ import { Document, Model, Schema } from 'mongoose'
 import database from '../../connection/mongodb'
 import * as shortid from 'shortid'
 
-const mongodb = database.get('koa-starter-kit')
+const mongodb = database.get('web_backend')
 
 const modelName = 'shortUrl'
 

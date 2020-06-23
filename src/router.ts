@@ -1,5 +1,5 @@
 import * as KoaRouter from 'koa-router'
-import {middleware} from './common'
+import { middleware } from './common'
 
 export default class ApiRouter extends KoaRouter {
   public constructor () {
@@ -15,5 +15,6 @@ export default class ApiRouter extends KoaRouter {
    */
   public setupRoutes = (): void => {
     require('./user/router').router(this)
+    require('./common/router').router(this)
   }
 }

@@ -1,6 +1,6 @@
 .PHONY: build
 
-NAME=koa-starter-kit
+NAME=web_backend
 REGISTRY=registry.cn-shenzhen.aliyuncs.com
 NAMESPACE=leoliew
 TAG=beta

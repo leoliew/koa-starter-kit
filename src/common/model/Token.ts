@@ -4,7 +4,7 @@ import { lib } from '../modules'
 
 const {Constant} = lib
 
-const mongodb = database.get('koa-starter-kit')
+const mongodb = database.get('web_backend')
 
 const modelName = 'token'
 

@@ -5,7 +5,7 @@ import { lib } from '../modules'
 const {Constant} = lib
 import * as _ from 'lodash'
 
-const mongodb = database.get('koa-starter-kit')
+const mongodb = database.get('web_backend')
 
 const modelName = 'verificationCode'
 

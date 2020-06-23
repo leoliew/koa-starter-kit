@@ -3,6 +3,12 @@
 #### 介绍
 koa脚手架工具
 
+#### 打开方式
+```
+$ git clone -o koa-starter-kit -b master --single-branch https://github.com/leoliew/koa-starter-kit.git MyApp
+$ cd MyApp
+```
+
 #### 目录结构
 ```
 .
@@ -65,13 +71,6 @@ koa脚手架工具
 - >3.打包前确保通过了所有单元测试
 
 #### 配置相关
-
-##### 在本地跑测试需要启动mongoDB集群，简单操作如下：
-    1. npm install run-rs -g
-    2. run-rs -p 27010 --dbpath /你的数据库文件文件夹路径/
-    第二条参数中如果改端口号需要把test配置中的对应端口也一同修改
-    本地已经有了mongo服务的话可以加上 --mongod 省去下载时间
-    mongoDB版本要求4.0或以上
 
 ##### 请求日志输入格式, 单行日志顺序输入以下内容, 每个内容之间以`|#|`分隔
 - 请求时间,时间格式 `2012-03-02T13:35:22.83Z`

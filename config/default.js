@@ -1,5 +1,7 @@
 module.exports = {
-  application: 'koa-starter-kit',
+  isProd: false,
+  application: 'web_backend',
+  mongooseDebug: false,
   log: {
     level: 'debug'
   },

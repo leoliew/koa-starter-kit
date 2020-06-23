@@ -1,7 +1,7 @@
 import { Document, Model, Schema, Types } from 'mongoose'
 import database from '../../connection/mongodb'
 
-const mongodb = database.get('koa-starter-kit')
+const mongodb = database.get('web_backend')
 
 const modelName = 'user'
 
