@@ -1,13 +1,16 @@
 import * as UserController from '../controller/UserController'
+import { registerAndLoginService } from '../service'
 import { Constant, Logger } from '../../lib'
-// import * as sinon from 'sinon'
+import * as sinon from 'sinon'
 
 describe('UserController测试', () => {
   test('获取验证码成功', async () => {
-    // const stub1 = sinon.stub(Object.getPrototypeOf(mpurseProxy), 'payout').returns(payoutSuccessResult)
-    // const mobileNumber = '13242890009'
-    // const result = await UserController.sendLoginCode({mobileNumber})
-    // expect(result.mobileNumber).toBe(mobileNumber)
-    // expect(result.code.length).toBe(6)
+    const requestParams = {
+      code: '123456',
+      mobileNumber: '13578778877'
+    }
+    const stub = sinon.stub(registerAndLoginService, 'loginByCode').returns(requestParams)
+    const result = await UserController.loginByCode({params: requestParams})
+    stub.restore()
   })
 })

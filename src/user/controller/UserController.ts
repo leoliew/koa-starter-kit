@@ -9,6 +9,7 @@ const {Joi, AppError} = lib
  */
 export async function sendLoginCode (ctx) {
   const {mobileNumber} = ctx.params
+  // 多语言demo
   const schema = Joi.object().keys({
     mobileNumber: Joi.string().required().regex(/^1[34578]\d{9}$/).error(new AppError(ctx.i18n('mobile_number_format_error')))
   })
@@ -24,8 +25,8 @@ export async function sendLoginCode (ctx) {
 export async function loginByCode (ctx) {
   const {mobileNumber, code} = ctx.params
   const schema = Joi.object().keys({
-    mobileNumber: Joi.string().required().regex(/^1[34578]\d{9}$/).error(new AppError(ctx.i18n('mobile_format_error'))),
-    code: Joi.string().required().error(new AppError(ctx.i18n('require_code')))
+    mobileNumber: Joi.string().required().regex(/^1[34578]\d{9}$/).error(new AppError('Invalid mobileNumber')),
+    code: Joi.string().required().length(6).error(new AppError('Invalid code'))
   })
   const param = {mobileNumber, code}
   const value = Joi.validate(param, schema)
