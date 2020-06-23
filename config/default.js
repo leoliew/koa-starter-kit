@@ -1,7 +1,9 @@
 module.exports = {
   isProd: false,
   application: 'web_backend',
-  mongooseDebug: false,
+  database: {
+    mongooseDebug: false
+  },
   log: {
     level: 'debug'
   },

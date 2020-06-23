@@ -11,8 +11,8 @@ const modelName = 'token'
 export interface IToken extends Document {
   userId: string
   token: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 const schema: Schema = new Schema({

@@ -3,11 +3,11 @@ import * as config from 'config'
 
 const mongodbConfig = config.get('database.mongodb')
 const DEBUG_FLAG = config.get('database.mongooseDebug')
-// mongoose.Promise.set(Promise)
-// mongoose.set('useNewUrlParser', true)
 mongoose.set('debug', DEBUG_FLAG)
 mongoose.set('useNewUrlParser', true)
+mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
+mongoose.set('useUnifiedTopology', true)
 
 let dbs: Map<string, mongoose.Connection> = new Map()
 
