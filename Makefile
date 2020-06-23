@@ -1,5 +1,6 @@
 .PHONY: build
 
+# TODO: 6.Docker仓库地址配置
 NAME=web_backend
 REGISTRY=registry.cn-shenzhen.aliyuncs.com
 NAMESPACE=leoliew

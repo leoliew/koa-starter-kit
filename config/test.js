@@ -6,8 +6,9 @@ module.exports = {
     mongooseDebug: true,
     mongodb: [
       {
+        // TODO: 4.测试环境DB配置
         name: 'web_backend',
-        url: 'mongodb://127.0.0.1:27017/web_backend',
+        url: 'mongodb://127.0.0.1:27017/test_backend',
         options: {}
       }
     ]

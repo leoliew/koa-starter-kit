@@ -1,11 +1,11 @@
-import database from '../src/connection/mongodb'
-import { redis } from '../src/connection'
+import { redis, dbs } from '../src/connection'
+import {Constant} from '../src/lib'
 import * as mongoose from 'mongoose'
 
 process.env.TEST_SUITE = 'web_backend'
 
 beforeEach(async () => {
-  const db = database.get('web_backend')
+  const db = dbs.get(Constant.DATABASE.MONGODB_CONFIG.MAIN_DB_NAME)
   for (let key of Object.keys(db.collections)) {
     await db.collections[key].deleteMany({})
   }

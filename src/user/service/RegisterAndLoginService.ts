@@ -19,13 +19,13 @@ export class RegisterAndLoginService {
   async sendLoginCode ({mobileNumber}: { mobileNumber: string }) {
     await this.checkSendCode({mobileNumber})
     const verificationCode = _.random(100000, 999999).toString()
-    // TODO: 调用短信通道
+    // 需要调用短信通道
     await VerificationCode.create({
       mobileNumber,
       code: verificationCode.toString(),
       type: Constant.VERIFICATION_CODE.TYPE.LOGIN
     })
-    // TODO: 改成用短信通道之后不需要返回code
+    // 需要改成用短信通道之后不需要返回code
     return {
       code: verificationCode,
       mobileNumber
