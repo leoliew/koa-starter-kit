@@ -1,11 +1,11 @@
 import { Document, Model, Schema } from 'mongoose'
-import database from '../../connection/mongodb'
+import { dbs } from '../../connection'
 import { lib } from '../modules'
 
 const {Constant} = lib
 import * as _ from 'lodash'
 
-const mongodb = database.get('web_backend')
+const mongodb = dbs.get(Constant.DATABASE.MONGODB_CONFIG.MAIN_DB_NAME)
 
 const modelName = 'verificationCode'
 
@@ -13,8 +13,8 @@ export interface IVerificationCode extends Document {
   mobileNumber: string
   code: string
   type: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 const schema: Schema = new Schema({

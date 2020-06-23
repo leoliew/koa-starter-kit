@@ -1,7 +1,10 @@
 module.exports = {
   isProd: false,
+  // TODO: 1.应用名称配置
   application: 'web_backend',
-  mongooseDebug: false,
+  database: {
+    mongooseDebug: false
+  },
   log: {
     level: 'debug'
   },

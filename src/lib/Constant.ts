@@ -12,6 +12,13 @@ const Constant = {
     EXPIRES_IN: 2 * 24 * 60 * 60 // 过期时间，秒数
   },
 
+  DATABASE: {
+    MONGODB_CONFIG: {
+      // TODO: 5.主DB名称配置
+      MAIN_DB_NAME: 'web_backend'
+    }
+  },
+
   RESPONSE: {
     SUCCESS: 0, // 成功
     FAILURE: 1, // 错误
@@ -40,26 +47,6 @@ const Constant = {
     POSTGRADUATE_DEGREE: 'Postgraduate Degree', // 研究生
     PHD: 'PhD', // 博士生
     OTHER: 'Other' // 其他
-  },
-
-  // 贷超链接
-  MARKET: {
-    MONEY_TAP: {
-      NAME: 'money tap',
-      URL: ''
-    },
-    CASHBEAN: {
-      NAME: 'CashBean',
-      URL: ''
-    },
-    PAYSENSE: {
-      NAME: 'PaySense',
-      URL: ''
-    },
-    SMARTCOIN: {
-      NAME: 'SmartCoin',
-      URL: ''
-    }
   }
 }
 

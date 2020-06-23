@@ -6,6 +6,7 @@ module.exports = {
     },
     mongodb: [
       {
+        // TODO: 3.生产环境DB配置
         name: 'web_backend',
         url: process.env.MONGOLAB_URI,
         options: {}

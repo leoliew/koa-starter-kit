@@ -1,8 +1,11 @@
 import { Document, Model, Schema } from 'mongoose'
-import database from '../../connection/mongodb'
+import { dbs } from '../../connection'
 import * as shortid from 'shortid'
+import { lib } from '../modules'
 
-const mongodb = database.get('web_backend')
+const {Constant} = lib
+
+const mongodb = dbs.get(Constant.DATABASE.MONGODB_CONFIG.MAIN_DB_NAME)
 
 const modelName = 'shortUrl'
 

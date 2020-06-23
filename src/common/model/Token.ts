@@ -1,18 +1,18 @@
 import { Document, Model, Schema } from 'mongoose'
-import database from '../../connection/mongodb'
+import { dbs } from '../../connection'
 import { lib } from '../modules'
 
 const {Constant} = lib
 
-const mongodb = database.get('web_backend')
+const mongodb = dbs.get(Constant.DATABASE.MONGODB_CONFIG.MAIN_DB_NAME)
 
 const modelName = 'token'
 
 export interface IToken extends Document {
   userId: string
   token: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 const schema: Schema = new Schema({
