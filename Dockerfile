@@ -1,4 +1,4 @@
-FROM node:10.16.3-alpine as base
+FROM node:12.18.1-alpine as base
 
 RUN echo http://mirrors.aliyun.com/alpine/v3.4/main/ > /etc/apk/repositories && \
               echo http://mirrors.aliyun.com/alpine/v3.4/community/ >> /etc/apk/repositories
@@ -10,7 +10,7 @@ RUN npm install --build-from-source --registry=https://registry.npm.taobao.org \
                 --production && \
     npm cache verify && rm package.json
 
-FROM node:10.16.3-alpine as build
+FROM node:12.18.1-alpine as build
 
 WORKDIR /data
 
@@ -25,7 +25,7 @@ RUN echo http://mirrors.aliyun.com/alpine/v3.4/main/ > /etc/apk/repositories && 
     apk update && apk add ca-certificates && \
     apk add tzdata && \
     ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && \
-    echo "Asia/Kolkata" > /etc/timezone
+    echo "Asia/Shanghai" > /etc/timezone
 
 COPY . .
 RUN ./node_modules/.bin/tsc
