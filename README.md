@@ -4,15 +4,32 @@
 koa脚手架工具
 
 #### 打开方式
+
+- clone 项目
 ```
 $ git clone -o koa-starter-kit -b master --single-branch https://github.com/leoliew/koa-starter-kit.git MyApp
 $ cd MyApp
 ```
 
+- 在`master`分支设置自己的git仓库地址
+```
+git remote add origin 仓库地址
+```
+
+- 搜索项目中的`TODO`，并修改成自己项目的设置
+    - TODO: 1.应用名称配置
+    - TODO: 2.beta环境DB配置
+    - TODO: 3.生产环境DB配置
+    - TODO: 4.测试环境DB配置
+    - TODO: 5.主DB名称配置
+    - TODO: 6.Docker仓库地址配置
+
 #### 目录结构
 ```
 .
-├── Dockerfile                 
+├── Dockerfile    
+├── bin
+│   └── processes_docker.yml   // pm2线程管理工具w发布脚本            
 ├── Makefile                   // docker打包文件
 ├── config/                    // 环境变量配置             
 │   ├── default.js             // 默认配置
@@ -48,6 +65,8 @@ $ cd MyApp
 ├── tsconfig.json              // ts 编译配置
 └── tslint.json                // tslint代码规范配置
 ```
+
+> **Tips**: 生成目录树 `tree -I 'node_modules|dist'`
 
 #### 使用说明
 
