@@ -1,6 +1,13 @@
 import * as config from 'config'
 
 const Constant = {
+  PROXY_LOG: {
+    STATUS: {
+      PENDING: 'pending',
+      ERROR: 'err',
+      FINISH: 'finish'
+    }
+  },
   VERIFICATION_CODE: {
     TYPE: {
       LOGIN: 'LOGIN' // 登录app
