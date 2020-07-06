@@ -143,6 +143,14 @@ class DateUtil {
     return end.diff(start, 'days')
   }
 
+  /**
+   * 获取是本周几
+   * @param date
+   */
+  getDaysOfWeeks (date) {
+    return date.getDay()
+  }
+
   isWorkDay (date = new Date()) {
     const days = [1, 2, 3, 4, 5]
     return _.includes(days, date.getDay())
